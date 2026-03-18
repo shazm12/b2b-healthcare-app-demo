@@ -1,16 +1,40 @@
-import { createContext, useContext, useState, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import type { AuthContextType, AuthUser } from '../types/auth'
+import { auth } from '../services/firebase';
+import { GoogleAuthProvider, onAuthStateChanged, signOut, signInWithPopup } from 'firebase/auth';
 
 const AuthContext = createContext<AuthContextType | null>(null)
+const googleProvider = new GoogleAuthProvider();
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<AuthUser | null>(null)
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const login = (user: AuthUser) => setUser(user)
-  const logout = () => setUser(null)
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if(firebaseUser) {
+        setUser({
+          id: firebaseUser.uid,
+          name: firebaseUser.displayName ?? "Unknown",
+          email: firebaseUser.email ?? "",
+          photoURL: firebaseUser.photoURL ?? undefined
+        })
+      } else {
+        setUser(null);
+      }
+      setIsLoading(false);
+    })
+    return unsubscribe; //cleanup
+  },[])
+
+  const loginWithGoogle = async() => {
+    await signInWithPopup(auth, googleProvider)
+  };
+  
+  const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, isAuthenticated: !!user , loginWithGoogle, logout }}>
       {children}
     </AuthContext.Provider>
   )
