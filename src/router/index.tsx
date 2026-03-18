@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
 import Analytics from '../pages/Analytics'
 import PatientDetails from '../pages/PatientDetails'
+import Patients from '../pages/Patients'
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
         children: [
           { path: '/dashboard', element: <Dashboard /> },
           { path: '/analytics', element: <Analytics /> },
+          { path: '/patients', element: <Patients /> },
           { path: '/patients/:id', element: <PatientDetails /> },
         ],
       },
