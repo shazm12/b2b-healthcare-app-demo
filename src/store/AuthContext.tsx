@@ -11,7 +11,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    const unsubscribeAuthChange = onAuthStateChanged(auth, (firebaseUser) => {
       if(firebaseUser) {
         setUser({
           id: firebaseUser.uid,
@@ -24,7 +24,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
       setIsLoading(false);
     })
-    return unsubscribe; //cleanup
+    return unsubscribeAuthChange; //cleanup
   },[])
 
   const loginWithGoogle = async() => {
