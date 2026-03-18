@@ -2,12 +2,13 @@ export interface AuthUser {
   id: string
   name: string
   email: string
-  role: 'admin' | 'doctor' | 'nurse'
+  photoURL?: string
 }
 
 export interface AuthContextType {
   user: AuthUser | null
   isAuthenticated: boolean
-  login: (user: AuthUser) => void
-  logout: () => void
+  isLoading: boolean
+  loginWithGoogle: () => Promise<void>
+  logout: () => Promise<void>
 }
