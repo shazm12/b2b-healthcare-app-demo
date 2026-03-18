@@ -1,0 +1,83 @@
+[
+  {
+    "report_id": "RPT-2024-0001",
+    "patient_id": "PAT-001",
+    "report_date": "2024-11-20",
+    "report_type": "Blood Test",
+    "ordered_by": {
+      "doctor_id": "DOC-101",
+      "name": "Dr. Kavitha Rao",
+      "specialization": "General Physician"
+    },
+    "lab": {
+      "name": "Thyrocare Diagnostics",
+      "branch": "MG Road, Bengaluru",
+      "accreditation": "NABL"
+    },
+    "status": "Completed",
+    "findings": {
+      "haemoglobin": { "value": 13.5, "unit": "g/dL", "normal_range": "13.0–17.0", "flag": "Normal" },
+      "fasting_blood_glucose": { "value": 148, "unit": "mg/dL", "normal_range": "70–100", "flag": "High" },
+      "HbA1c": { "value": 7.8, "unit": "%", "normal_range": "<5.7", "flag": "High" },
+      "total_cholesterol": { "value": 210, "unit": "mg/dL", "normal_range": "<200", "flag": "Borderline High" },
+      "blood_pressure_systolic": { "value": 142, "unit": "mmHg", "normal_range": "<120", "flag": "High" },
+      "blood_pressure_diastolic": { "value": 92, "unit": "mmHg", "normal_range": "<80", "flag": "High" }
+    },
+    "doctor_notes": "Blood glucose and HbA1c elevated — diabetes management needs review. BP above target range. Recommend dietary changes and medication adjustment.",
+    "follow_up_date": "2024-12-20",
+    "attachments": ["blood_report_PAT001_Nov2024.pdf"]
+  },
+  {
+    "report_id": "RPT-2024-0002",
+    "patient_id": "PAT-002",
+    "report_date": "2024-10-05",
+    "report_type": "Thyroid Function Test",
+    "ordered_by": {
+      "doctor_id": "DOC-204",
+      "name": "Dr. Suresh Menon",
+      "specialization": "Endocrinologist"
+    },
+    "lab": {
+      "name": "Metropolis Healthcare",
+      "branch": "Koramangala, Bengaluru",
+      "accreditation": "NABL"
+    },
+    "status": "Completed",
+    "findings": {
+      "TSH": { "value": 6.8, "unit": "mIU/L", "normal_range": "0.4–4.0", "flag": "High" },
+      "T3": { "value": 1.1, "unit": "nmol/L", "normal_range": "1.2–3.1", "flag": "Low" },
+      "T4": { "value": 70, "unit": "nmol/L", "normal_range": "66–181", "flag": "Normal" },
+      "Free_T4": { "value": 0.9, "unit": "ng/dL", "normal_range": "0.8–1.8", "flag": "Normal" }
+    },
+    "doctor_notes": "TSH remains elevated indicating under-controlled hypothyroidism. T3 borderline low. Levothyroxine dose to be increased from 50mcg to 75mcg. Retest in 8 weeks.",
+    "follow_up_date": "2024-12-01",
+    "attachments": ["thyroid_report_PAT002_Oct2024.pdf"]
+  },
+  {
+    "report_id": "RPT-2024-0003",
+    "patient_id": "PAT-003",
+    "report_date": "2024-12-12",
+    "report_type": "Complete Blood Count (CBC)",
+    "ordered_by": {
+      "doctor_id": "DOC-310",
+      "name": "Dr. Ananya Krishnan",
+      "specialization": "General Physician"
+    },
+    "lab": {
+      "name": "SRL Diagnostics",
+      "branch": "Indiranagar, Bengaluru",
+      "accreditation": "NABL"
+    },
+    "status": "Completed",
+    "findings": {
+      "haemoglobin": { "value": 15.2, "unit": "g/dL", "normal_range": "13.0–17.0", "flag": "Normal" },
+      "WBC": { "value": 11.5, "unit": "x10³/µL", "normal_range": "4.0–11.0", "flag": "High" },
+      "platelets": { "value": 220, "unit": "x10³/µL", "normal_range": "150–400", "flag": "Normal" },
+      "RBC": { "value": 5.1, "unit": "x10⁶/µL", "normal_range": "4.5–5.9", "flag": "Normal" },
+      "neutrophils": { "value": 78, "unit": "%", "normal_range": "50–70", "flag": "High" }
+    },
+    "doctor_notes": "Elevated WBC and neutrophil count suggest possible bacterial infection. Patient presented with fever and sore throat. Prescribed antibiotic course for 5 days. Review if symptoms persist.",
+    "follow_up_date": "2024-12-19",
+    "attachments": ["cbc_report_PAT003_Dec2024.pdf"]
+  }
+]
