@@ -1,12 +1,13 @@
-import { useAnalytics } from '../../hooks/useAnalytics'
-import { NumberWidget, BarChartWidget } from '../../components/common'
+import { useAnalytics } from "../../hooks/useAnalytics";
+import { NumberWidget, BarChartWidget } from "../../components/common";
 
 export default function Analytics() {
-  const { summary, isLoading, error } = useAnalytics()
+  const { summary, isLoading, error } = useAnalytics();
 
-  if (isLoading) return <div className="text-gray-500">Loading analytics...</div>
-  if (error) return <div className="text-red-500">{error}</div>
-  if (!summary) return null
+  if (isLoading)
+    return <div className="text-gray-500">Loading analytics...</div>;
+  if (error) return <div className="text-red-500">{error}</div>;
+  if (!summary) return null;
 
   return (
     <div>
@@ -35,12 +36,24 @@ export default function Analytics() {
           title="Report Status Distribution"
           data={summary.reportStatusDist}
           colorMap={{
-            Completed: '#16a34a',
-            Pending: '#ca8a04',
-            Cancelled: '#dc2626',
+            Completed: "#16a34a",
+            Pending: "#ca8a04",
+            Cancelled: "#dc2626",
+          }}
+        />
+      </div>
+      <div className="mt-6">
+        <BarChartWidget
+          title="Age Distribution"
+          data={summary.ageDist}
+          colorMap={{
+            "0-18": "#3b82f6",
+            "19-35": "#10b981",
+            "36-60": "#f59e0b",
+            "60+": "#ef4444",
           }}
         />
       </div>
     </div>
-  )
+  );
 }
