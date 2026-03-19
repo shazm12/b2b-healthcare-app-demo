@@ -17,7 +17,7 @@ export default function Dashboard() {
             Check your patients data
             {' '}
             at <Link to="/patients" className="font-medium text-blue-600 hover:underline">
-             Paitents page.
+             Patients page.
             </Link>{' '}
           </p>
         </li>
