@@ -1,6 +1,7 @@
 
 import patientsData from '../assets/data/patients.json';
 import paitentReportData from '../assets/data/patients_reports.json';
+import type { AnalyticsSummary } from '../types/analytics';
 import type { Patient } from '../types/patient';
 import type { PatientReport } from '../types/report';
 
@@ -59,10 +60,11 @@ export function computeReportStatusDistribution(): Record<string, number> {
     return distribution;
 }
 
-export async function getAnalyticsSummary() {
-    const [totalPatients, averageAge, totalReports, reportStatusDist] = await Promise.all([
+export async function getAnalyticsSummary(): Promise<AnalyticsSummary> {
+    const [totalPatients, averageAge, ageDist, totalReports, reportStatusDist] = await Promise.all([
         calculateTotalPatients(),
         calculateAverageAge(),
+        computeAgeDistribution(),
         calculateTotalReports(),
         computeReportStatusDistribution()
     ])
@@ -70,6 +72,7 @@ export async function getAnalyticsSummary() {
     return {
         totalPatients,
         averageAge: Math.round(averageAge),
+        ageDist,
         totalReports,
         reportStatusDist,
     }
