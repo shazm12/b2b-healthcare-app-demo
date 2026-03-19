@@ -28,7 +28,7 @@ export default function BarChartWidget({
           <XAxis
             dataKey="name"
             tick={{ fontSize: 12, fill: '#6b7280' }}
-            axisLine={false}
+            axisLine={true}
             tickLine={false}
           />
           <YAxis
