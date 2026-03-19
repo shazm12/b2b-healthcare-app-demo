@@ -17,7 +17,8 @@ A B2B healthcare management application for tracking patients, reports, and key 
 | `/` | Login |
 | `/dashboard` | KPIs and overview |
 | `/analytics` | Charts and metrics |
-| `/patients/:id` | Patient details (CRUD) |
+| `/patients` | Patient listing (grid and list view) |
+| `/patients/:id` | Individual patient details (CRUD) |
 
 ## Data
 
