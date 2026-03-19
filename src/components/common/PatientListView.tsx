@@ -10,7 +10,8 @@ const COLUMNS = ['Name', 'Age & Gender', 'Blood Group', 'Phone', 'Email']
 export default function PatientListView({ patients, onSelect }: PatientListViewProps) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-      <table className="w-full text-sm">
+      <div className="overflow-x-auto">
+      <table className="w-full text-sm min-w-150">
         <thead className="bg-gray-50 border-b border-gray-200">
           <tr>
             {COLUMNS.map((h) => (
@@ -41,6 +42,7 @@ export default function PatientListView({ patients, onSelect }: PatientListViewP
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }
